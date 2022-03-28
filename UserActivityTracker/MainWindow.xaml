@@ -1,0 +1,18 @@
+﻿<Window x:Class="UserActivityTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserActivityTracker"
+        mc:Ignorable="d"
+        Title="Barcode Scan" Height="250" Width="400">
+    <Grid>
+        <Label Content="Изберете файл съдържащ баркод за валидиране:" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="txtFilePath" HorizontalAlignment="Left" Height="21" Margin="25,76,0,0" VerticalAlignment="Top" Width="225"/>
+        <Button Content="Избор файл" HorizontalAlignment="Left" Margin="270,75,0,0" VerticalAlignment="Top" Width="100" Click="Browse_File_Click"/>
+        <Button Content="Сканиране" IsEnabled="{Binding ElementName=txtFilePath, Path=Text.Length, Mode=OneWay}" HorizontalAlignment="Left" Margin="270,125,0,0" VerticalAlignment="Top" Width="100" Click="Scan_Barcode_Click"/>
+        <Label Content="Прочетени баркодове:" HorizontalAlignment="Left" Margin="25,100,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="lboxBarcodes" HorizontalAlignment="Left" Height="74" Margin="25,125,0,0" VerticalAlignment="Top" Width="225"/>
+        <Button Content="Валидиране" IsEnabled="{Binding ElementName=lboxBarcodes, Path=Items.Count, Mode=OneWay}" HorizontalAlignment="Left" Margin="270,176,0,0" VerticalAlignment="Top" Width="100" Click="Validate_Barcode_Click"/>
+    </Grid>
+</Window>
